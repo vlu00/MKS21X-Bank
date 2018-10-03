@@ -3,5 +3,7 @@ public class Driver{
    	 BankAccount a = new BankAccount(100.0, 1234, "HELLO");
      System.out.println(a);
      System.out.println("The current balance for account ID " + a.getAccountID() + " is "+ a.getBalance() + ".");
+     a.setPassword("Puppies");
+     System.out.println("Your password is " + a.getPassword() + ".");
     }
 }
