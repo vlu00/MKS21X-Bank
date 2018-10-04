@@ -39,7 +39,7 @@ public class BankAccount {
     }
   }
 
-  public boolean withdrawl (double amount) {
+  public boolean withdraw (double amount) {
     if (balance - amount > 0) {
       balance = balance - amount;
       return true;
@@ -49,4 +49,18 @@ public class BankAccount {
     }
   }
 
+  public boolean authenticate(String password) {
+    return this.password.equals(password);
+  }
+
+  public boolean transferTo (BankAccount other, double amount, String password) {
+    if (this.authenticate(password) && this.withdraw(amount)) {
+      this.withdraw(amount);
+      other.deposit(amount);
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }
